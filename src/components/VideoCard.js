@@ -10,10 +10,19 @@ const VideoCard = ({ info }) => {
       <div>
         <h2 className="font-bold py-2">{title}</h2>
         <p className="">{channelTitle}</p>
-        <p className="">Views: {statistics.viewCount}</p>
+        <p className="">{statistics.viewCount} views</p>
       </div>
     </div>
   );
 };
+
+// Higher order component
+const RedBorderVideoCard = (VideoCard) => {
+  return (
+    <div className="p-1 m-1 border border-red-900">
+      <VideoCard />
+    </div>
+  )
+}
 
 export default VideoCard;

@@ -16,7 +16,6 @@ const VideoContainer = () => {
         }
         const data = await response.json();
         setVideos(data.items);
-        console.log(data.items[0]);
       } catch (error) {
         console.error("Error fetching videos:", error);
       }
@@ -28,8 +27,8 @@ const VideoContainer = () => {
   return (
     <div className="flex flex-wrap">
       {videos.map((video) => (
-        <Link to={"/watch?v=" + video.id}>
-          <VideoCard key={video.id} info={video} />
+        <Link key={video.id} to={"/watch?v=" + video.id}>
+          <VideoCard info={video} />
         </Link>
       ))}
     </div>
